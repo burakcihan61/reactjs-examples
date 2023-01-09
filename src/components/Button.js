@@ -12,6 +12,7 @@ const Button = () => {
         Change Theme
       </button>
       <hr />
+      <br />
     </div>
   );
 };

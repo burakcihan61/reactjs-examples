@@ -25,11 +25,11 @@ html {
     height: 100%;
     margin: 0;
     line-height: 1.5;
-    color: #121212;
+    color: #fff;
+   
   }
-  .App{
-    text-align: center;
-  }
+  
+  
   label{
     display: block;
   }
@@ -62,4 +62,12 @@ html {
     transform: translateY(1px);
   }
   
-  
+  .dark{
+    background-color: #121212;
+    height: 100vh;
+    color: #fff;
+  }
+  .light{
+    background-color: #fff;
+    color: #121212;
+  }

@@ -5,6 +5,7 @@ import ButtonTheme from "./ButtonTheme";
 import ThemeContext from "../ContextAPI/ThemeContext";
 import UserContext from "../ContextAPI/UserContext";
 import Profile from "./Profile";
+import TodoContexExam from "./TodoContexExam";
 
 const Container = () => {
   const { theme } = useContext(ThemeContext);
@@ -15,6 +16,8 @@ const Container = () => {
       <ButtonTheme />
       <hr />
       <Profile />
+      <hr />
+      <TodoContexExam />
     </div>
   );
 };

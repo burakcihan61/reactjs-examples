@@ -1,2 +1,2 @@
-# NextJS-Examples
+# React JS Examples
  

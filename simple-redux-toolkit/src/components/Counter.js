@@ -17,9 +17,13 @@ const Counter = () => {
       <h1>{counterValue}</h1>
       <button onClick={() => dispatch(decrement())}>Decrement</button>
       <button onClick={() => dispatch(increment())}>Increment</button>
-
       <br />
       <br />
+      <input
+        type="number"
+        value={amount}
+        onChange={(e) => setAmount(e.target.value)}
+      />
       <input
         type="number"
         value={amount}

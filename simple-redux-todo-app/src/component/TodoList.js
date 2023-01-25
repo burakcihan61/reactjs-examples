@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   toggleTodo,
   removeTodo,
-  selectTodos,
   selectFiltredTodos,
 } from "../redux/todosSlice";
 
@@ -11,7 +10,7 @@ let filtered = [];
 const TodoList = () => {
   const dispatch = useDispatch();
   const filtredTodos = useSelector(selectFiltredTodos);
-  /*  const activeFilter = useSelector((state) => state.todos.activeFilter);*/
+
   const handleDestroy = (id) => {
     if (window.confirm("Are you sure?")) {
       dispatch(removeTodo({ id: id }));

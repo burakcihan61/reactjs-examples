@@ -2,9 +2,6 @@ import React from "react";
 import ContentFooter from "./ContentFooter";
 import TodoList from "./TodoList";
 
-const Burak = () => {
-  let burak;
-};
 const Content = () => {
   return (
     <>

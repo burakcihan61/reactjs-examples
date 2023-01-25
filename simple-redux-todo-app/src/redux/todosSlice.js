@@ -1,16 +1,16 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 export const todosSlice = createSlice({
   name: "todos",
   initialState: {
     items: [
       {
-        id: 1,
+        id: nanoid(),
         title: "Learn JavaScript",
         completed: false,
       },
       {
-        id: 2,
+        id: nanoid(),
         title: "Learn React",
         completed: true,
       },
@@ -18,8 +18,19 @@ export const todosSlice = createSlice({
     activeFilter: "all",
   },
   reducers: {
-    addTodo: (state, action) => {
-      state.items.push(action.payload);
+    addTodo: {
+      reducer: (state, action) => {
+        state.items.push(action.payload);
+      },
+      prepare: ({ title }) => {
+        return {
+          payload: {
+            id: nanoid(),
+            completed: false,
+            title,
+          },
+        };
+      },
     },
     toggleTodo: (state, action) => {
       const { id } = action.payload;
@@ -40,6 +51,22 @@ export const todosSlice = createSlice({
   },
 });
 
+export const selectTodos = (state) => state.todos.items;
+export const selectFiltredTodos = (state) => {
+  const activeFilter = state.todos.activeFilter;
+  const items = state.todos.items;
+  let filtered = items;
+  if (activeFilter !== "all") {
+    filtered = items.filter((item) => {
+      if (activeFilter === "active") {
+        return !item.completed;
+      } else if (activeFilter === "completed") {
+        return item.completed;
+      }
+    });
+  }
+  return filtered;
+};
 export const {
   addTodo,
   toggleTodo,
